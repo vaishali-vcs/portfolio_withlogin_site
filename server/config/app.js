@@ -17,20 +17,20 @@ let bodyParser = require("body-parser");
 let logger = require('morgan');
 
 // link the path to the index router.
-let indexRouter = require('./routes/index');
+let indexRouter = require('../routes/index');
 
 let app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'node_modules')));
+app.use(express.static(path.join(__dirname, '../../public')));
+app.use(express.static(path.join(__dirname, '../../node_modules')));
 app.use(bodyParser.urlencoded({
   extended: true
 }));
