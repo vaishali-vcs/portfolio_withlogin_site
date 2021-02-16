@@ -1,0 +1,135 @@
+/* Custom CSS for the website
+File Name: app.css 
+Name: Vaishali Siddeshwar
+Student ID: 301172372
+Date: Feb-10-2021
+*/
+
+/* set the height of the html page */
+html{
+    height: 100%
+}
+
+/* set the background color, font the website */
+.site-main{
+background-color:powderblue;
+min-height: 100%;
+font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+/* set the style of Titles used */
+.title{
+letter-spacing: 10px; 
+
+}
+
+/* set the style of h3 content */
+.site-main .site-banner .site-title h3{
+    padding-top: 20%;
+    font-weight: 500;
+}
+
+/* set the style of h3 used */
+.site-main .site-banner .site-title h3::after{
+    content: " "; 
+    height: 2px;
+    width: 18vw;
+    background-color: black;
+    display: inline-block;
+    margin-left: 5%;
+}
+
+/* set the style of h1 content */
+.site-main .site-banner .site-title h1{
+    font-size: 5 rem;
+}
+
+/* set the style of h4 content */
+.site-main .site-banner .site-title h4{
+    font-size: 1.5 rem;
+}
+
+/* set the style of the banner content */
+.site-main .site-banner .banner-image img{
+    padding-top: 2rem;
+    width: 90rem;
+    
+}
+
+/* set the style of the About partial */
+.site-main .about-area{
+    padding: 5rem, 0rem;
+}
+
+/* set the style of the span tag in About partial */
+.site-main .about-area .about-title h2 > span{
+    display: block;
+    font: normal bold 49px/60px;
+    letter-spacing: 10px; 
+}
+
+/* set the style of the h3 in About partial */
+.site-main .about-area .about-title h3 > span{
+    display: block;
+    font: normal bold 49px/60px;
+    letter-spacing: 5px; 
+}
+
+/* set the style of the list in About partial */
+.site-main .about-area ul#menu li {
+    display:inline;
+  }
+
+/* set the style of the h2 in Project partial */
+.site-main .project-area  h2 > span{
+    display: block;
+    font: normal bold 49px/60px;
+    letter-spacing: 10px; 
+}
+
+/* set the style of the h4 in Project partial */
+.site-main .project-area .grid .our-project > .title h4{
+      font: normal 700 25px/12px;
+  }
+
+/* set the style of the h4 in Project partial */
+.site-main .project-area  h2 > span{
+    display: block;
+    font: normal bold 49px/60px;
+    letter-spacing: 10px; 
+}
+
+/* set the style of the h2 in Contact partial */
+.site-main .contact-area  h2 > span{
+    display: block;
+    font: normal bold 49px/60px;
+    letter-spacing: 10px; 
+}
+
+/* set the style of the form in Contact partial */
+  .site-main .contact-area .form .formrow{
+    padding: 1rem;
+  }
+
+/* set the style of the span in Services partial */
+.site-main .services-area  h2 > span{
+    display: block;
+    font: normal bold 49px/60px;
+    letter-spacing: 10px; 
+}
+/* set the style of the carousel in Services partial */
+#carouselservices {
+    background-color: transparent;
+    height: 500px !important;
+    width: 360;
+    align-content: center;
+    display: flex;
+    position: sticky;
+    float: left;
+    }
+/* set the style of the carousel in Services partial */
+
+.carousel-inner > .item > img {
+        width:600px;
+        height:360px;
+      }

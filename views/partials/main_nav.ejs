@@ -1,0 +1,76 @@
+<!--This partial holds website navigation bar
+File Name: main_nav.ejs 
+Name: Vaishali Siddeshwar
+Student ID: 301172372
+Date: Feb-10-2021
+-->
+<!-- Nav Bar Section--> 
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: powderblue;">
+    
+      <a class="navbar-brand mr-auto" href="#">
+        <img src="/Content/images/logo.png" alt="" width="40" height="40" class="d-inline-block align-top">
+      </a>
+      <span class="mr-auto">
+            <a href="http://www.linkedin.com/in/vaishalics" target="_blank">
+            <span style="color: black;"> <i class="fab fa-linkedin fa-2x " ></i></span>
+                <a href="https://github.com/vaishali-vcs?tab=repositories" target="_blank">
+                  <span style="color: black;"><i class="fab fa-github-square fa-2x"></i></span></a>
+          </span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+          <%if (title=="Home" ) { %>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/home"><i class="fas fa-2x  fa-home"></i> Home</a>
+            </li>
+            <% } else{ %>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/home"><i class="fas fa-2x  fa-home"></i> Home</a>
+              </li>
+              <% } %>
+
+                <%if (title=="About" ) { %>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/about"> <i class="fas fa-2x  fa-info-circle"></i> About</a>
+                  </li>
+                  <% } else{ %>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/about"> <i class="fas fa-2x  fa-info-circle"></i> About</a>
+                    </li>
+                    <% } %>
+                      <%if (title=="Projects" ) { %>
+                        <li class="nav-item active">
+                          <a class="nav-link" href="/projects"> <i class="fas fa-2x  fa-th-large"></i> Projects</a>
+                        </li>
+                        <% } else{ %>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/projects"> <i class="fas fa-2x  fa-th-large"></i> Projects</a>
+                          </li>
+                          <% } %>
+                            <%if (title=="Services" ) { %>
+                              <li class="nav-item active">
+                                <a class="nav-link" href="/services"><i class="fas fa-2x  fa-cogs"></i> Services</a>
+                              </li>
+                              <% } else{ %>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="/services"><i class="fas fa-2x  fa-cogs"></i> Services</a>
+                                </li>
+                                <% } %>
+                                  <%if (title=="Contact" ) { %>
+                                    <li class="nav-item active">
+                                      <a class="nav-link" href="/contact"><i class="fas fa-2x  fa-mobile-alt"></i>
+                                        Contact</a>
+                                    </li>
+                                    <% } else{ %>
+                                      <li class="nav-item">
+                                        <a class="nav-link" href="/contact"><i class="fas fa-2x  fa-mobile-alt"></i>
+                                          Contact</a>
+                                      </li>
+                                      <% } %>
+      </div>
+   
+  </nav>

@@ -1,0 +1,84 @@
+<!-- This partial is used to render the services offered in a carousel  
+File Name: services.ejs 
+Name: Vaishali Siddeshwar
+Student ID: 301172372
+Date: Feb-10-2021
+ -->
+
+<!-- load the necessary scripts for animation of carousel to work   -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+<!-- Services section -->
+<section class="services-area">
+    <div class="container">
+        <h2 class="text-uppercase pt-5">
+            <span>My Services</span>
+        </h2>
+        <hr>
+        <div class="row">
+            <div class="container">
+                <div id="carouselservices" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselservices" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselservices" data-slide-to="1"></li>
+                        <li data-target="#carouselservices" data-slide-to="2"></li>
+                        <li data-target="#carouselservices" data-slide-to="3"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img style="height:500px; width:100%;" src="/Content/images/french.jpg" alt="First slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h4>Teach French</h4>
+                                <span>I offer French tutoring all across the
+                                    Greater Toronto Area, to youth or adults at all levels and
+                                    can prepare them for langauge exams.</span>
+                              </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img style="height:500px; width:100%;" src="/Content/images/tutor.jpg" alt="Second slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h4>Teach Math</h4>
+                                <span>I can explain mathematical concepts in simple terms. 
+                                    I can help to improve problem solving skills & 
+                                    prepare you for tests and exams. </span>
+                              </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img style="height:500px; width:100%;" src="/Content/images/webdesign.jpg" alt="Third slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h4 style="color: gold;">Web Design</h4>
+                                <span style="color: gold;">I understand what it takes to make a website
+                                 functional and easy to use and can help in 
+                                 building or redesigning websites. </span>
+                              </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img style="height:500px; width:100%;" src="/Content/images/proofreading.jpg" alt="Fourth slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h4>Proofread thesis</h4>
+                                <span> I review the style for thesis and make sure you didn't miss any key
+                                    elements you must include.</span>
+                              </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselservices" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselservices" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

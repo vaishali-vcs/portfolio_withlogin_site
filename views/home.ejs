@@ -1,0 +1,43 @@
+<!--This partial holds Default or Home content
+File Name: home.ejs 
+Name: Vaishali Siddeshwar
+Student ID: 301172372
+Date: Feb-10-2021
+-->
+
+ <!-- render a fixed header content. This has 
+non-UI elements. This contains only <head> tags
+--> 
+<%- include partials/header.ejs %>
+
+ <!-- render a fixed navigation content for all HTTP requests.--> 
+<%- include partials/main_nav.ejs %>
+
+ <!-- Home section--> 
+<section>
+  <div class="container" style="align-content: center;">
+    <div class="jumbotron" style="background-color: transparent;" >
+        <h3 class="text-uppercase text-center title">Vaishali Siddeshwar</h3>
+        <p class="text-center">do what you <span style="color: darkred;"> <i class="fas fa-x fa-heart">
+
+        </i></span> & <span style="color: darkred;"> <i class="fas fa-x fa-heart"></i>
+        </span> what you do</p>
+        <hr>
+        <h2>Hi !</h2>
+        <p> Welcome to my Website. I'm a Toronto based Software Developer, 
+          creative thinker & Data Science Enthusiast 
+        , also passionate about web development. 
+         specializing in Artificial Intelligence. Click on the button below to know more.</p>
+        <form action="/home" method="POST"> 
+          <button type="submit" class="btn btn-primary btn-dark">About Me</button>
+      
+        </form> 
+        </div>
+      </div>
+</section>
+
+<!-- render a copyright content for all requests.--> 
+<%- include partials/bottom_nav.ejs %>
+
+<!-- This contains non-UI elements. But closing of body and html tags.--> 
+<%- include partials/header.ejs %>
