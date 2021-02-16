@@ -5,72 +5,39 @@ Student ID: 301172372
 Date: Feb-10-2021
 This module handles all the HTTPS request redirections.
 */
-
-//set up the necessary libraries
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
+let indexcontroller = require('../controllers/indexcontroller');
 
 /* set up GET route for default/Home page. */
-router.get('/', function(req, res, next) {
-  res.render('home', { title: 'Home' });
-});
+router.get('/', indexcontroller.getHome);
 
 /* set up POST route for About page. */
-router.post('/', function(req, res, next) {
-  res.render('index', { title: 'About' });
-});
-
+router.post('/', indexcontroller.getAbout);
 
 /* set up home route for Home page. */
-router.get('/home', function(req, res, next) {
-  res.render('home', { title: 'Home' });
-});
+router.get('/home', indexcontroller.getHome);
 
 /* set up POST route for About page. */
-router.post('/home', function(req, res, next) {
-  res.render('index', { title: 'About' });
-});
+router.post('/home', indexcontroller.getAbout);
 
 /* set up GET route for About page. */
-router.get('/about', function(req, res, next) {
-  res.render('index', { title: 'About' });
-});
+router.get('/about', indexcontroller.getAbout);
 
 /* set up GET route for Resume download. */
-router.get('/resume', function ( req, res ) {
-  let path =  __dirname + '/../public/' +'/Content/Vaishali_Siddeshwar_Resume.pdf';
-  
-  res.download(path, function (err) {
-    if (err) {
-        console.log("Error");
-        console.log(err);
-    } else {
-        console.log("Success");
-    }}); 
-});
+router.get('/resume', indexcontroller.getResume);
 
 /* set up GET route for Projects page. */
-router.get('/projects', function(req, res, next) {
-  res.render('index', { title: 'Projects' });
-});
+router.get('/projects', indexcontroller.getProjects);
 
 /* set up GET route for Services page. */
-router.get('/services', function(req, res, next) {
-  res.render('index', { title: 'Services' });
-});
+router.get('/services', indexcontroller.getServices);
 
 /* set up GET route for Home page. */
-router.get('/contact', function(req, res, next) {
-  res.render('contact', { title: 'Contact', entered_name: '' });
-});
+router.get('/contact', indexcontroller.getContactpage);
 
 /* set up POST route for Contact page to 
 acknowledge the reciept of details in contact details. */
-router.post('/contact', function(req, res, next) {
-  console.log(req.body.inputname);
-
-  res.render('contact', { title: 'Contact', entered_name: req.body.inputname });
-});
-
+router.post('/contact', indexcontroller.processContactpage);
 
 module.exports = router;

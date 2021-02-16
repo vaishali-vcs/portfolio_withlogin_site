@@ -1,0 +1,37 @@
+<!--This partial has Contact page contents 
+File Name: businesscontacts.ejs 
+Name: Vaishali Siddeshwar
+Student ID: 301172372
+Date: Feb-10-2021
+-->
+
+ <!-- render a fixed header content. This has 
+non-UI elements. This contains only <head> tags
+--> 
+<%- include ../partials/header.ejs %>
+
+ <!-- render a fixed navigation content for all HTTP requests.--> 
+<%- include ../partials/main_nav.ejs %>
+
+<section class="businesscontacts-area">
+    <div class="container">
+        <h2 class="text-uppercase pt-5">
+            business contacts
+        </h2>
+        <hr>
+        <div class="row">
+            <div class="column col-md-6">
+                <%- include ./partials/listbusinesscontacts.ejs %>
+            </div>
+            
+            <div class="column col-md-6">
+                <%- include ./partials/addbusinesscontacts.ejs %>
+            </div>
+          </div>
+    </div>
+</section>
+<!-- render a copyright content for all requests.--> 
+<%- include ../partials/bottom_nav.ejs %>
+
+<!-- This contains non-UI elements. But closing of body and html tags.--> 
+<%- include ../partials/header.ejs %>

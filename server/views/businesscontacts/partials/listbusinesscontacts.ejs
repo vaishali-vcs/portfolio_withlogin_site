@@ -1,0 +1,42 @@
+<section>
+    
+        
+            <h4>
+                Contact List
+            </h4>
+            <table class="table table-bordered table-striped table-hover">
+                <!--    Header row-->
+                <tr>
+                    <th class="text-center ">Name</th>
+                    <th class="text-center ">phone</th>
+                    <th class="text-center ">email</th>
+                    <th class="text-center  "></th>
+                    <th class="text-center  "></th>
+                </tr>
+                <!--   Repeatable Template row -->
+                <% for (let count=0; count< contactList.length; count++) { %>
+                    <tr>
+                        <td>
+                            <%= contactList[count].name %>
+                        </td>
+                        <td >
+                            <%= contactList[count].contact %>
+                        </td>
+                        <td>
+                            <%= contactList[count].email %>
+                        </td>
+                        <td>
+                            <a href="/businesscontacts/getcontacttoedit/<%= contactList[count]._id %>"
+                                class="btn btn-primary  btn-sm">
+                                <i class="fas fa-pencil-alt"></i></a>
+                        </td>
+                        <td>
+                            <a href="/businesscontacts/deletecontact/<%= contactList[count]._id %>"
+                                class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                    <% } %>
+            </table>     
+    
+</section>

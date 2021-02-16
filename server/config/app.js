@@ -15,9 +15,22 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let bodyParser = require("body-parser");
 let logger = require('morgan');
+let mongoose = require('mongoose');
 
 // link the path to the index router.
 let indexRouter = require('../routes/index');
+let businesscontactsRouter = require('../routes/businesscontacts');
+
+//Database setup
+let db = require('./db');
+
+//point mongoose to localdb URI
+mongoose.connect(db.URI,  {useNewUrlParser: true,  useUnifiedTopology: true },(err) => {
+  if(!err)
+      console.log('MongoDB connection succeeded...');
+  else
+      console.log('Error in DB connection: ' + JSON.stringify(err, undefined, 2 ));
+});
 
 let app = express();
 
@@ -38,7 +51,7 @@ app.use(bodyParser.urlencoded({
 //Use index router and body parser
 app.use(bodyParser.json());
 app.use('/', indexRouter);
-
+app.use('/businesscontacts',businesscontactsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

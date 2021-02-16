@@ -1,0 +1,35 @@
+<!--Content for Add Contact-->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-md-8">
+                <h4>
+                    Add/Edit Contact
+                </h4>
+
+                <div class="container">
+                    <form id="addcontact">
+                        <div class="form-group">
+
+                            <input type="name" class="form-control" id="contactname" aria-describedby="emailHelp"
+                                value="<%= contacttoedit.name %>" placeholder="Enter email" required>
+                        </div>
+                        <div class="form-group">
+
+                            <input type="text" class="form-control" id="contactphone" placeholder="Phone"
+                                value="<%= contacttoedit.contact %>" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="contactemail" placeholder="Email"
+                                value="<%= contacttoedit.email %>" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" onclick="Clearform">Submit</button>
+                        <a class="btn btn-warning">
+                            <i class="fas fa-undo"></i> Cancel
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
