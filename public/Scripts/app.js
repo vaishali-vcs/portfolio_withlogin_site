@@ -19,25 +19,22 @@ function Clearform()
     console.log('in start');
 }
 
-(function(){
-    function Start()
+$get("btndelete").onclick = function(event) {
+    
+    console.log('in javascript function')
+    if(!confirm("Are you sure?"))
     {
-        console.log('in javascript function')
-        //list of all danger buttons
-        let deletebuttons = document.querySelectorAll('.btn-danger')
-       
-        for(button of deletebuttons)
-        {
-            button.addEventListener('click', (event) => {
-            if(!confirm("Are you sure?"))
-            {
-                event.preventDefault();
-                window.location.assign('/booklist');
-            }    
-        });
-       }
+       event.preventDefault();
+       return false; // prevent browser action (don't go to the URL)
     }
-    window.addEventListener('click', Start);
-})();
+  };
 
-
+  
+function showwarning (event)
+{
+    console.log('in javascript function')
+    if(!confirm("Are you sure?"))
+    {
+       event.preventDefault();
+    } 
+}

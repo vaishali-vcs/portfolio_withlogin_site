@@ -8,19 +8,19 @@
                 </h4>
 
                 <div class="container">
-                    <form id="addcontact">
+                    <form id="addcontact" action="/businesscontacts/upsertcontact" method="POST">
                         <div class="form-group">
 
-                            <input type="name" class="form-control" id="contactname" aria-describedby="emailHelp"
-                                value="<%= contacttoedit.name %>" placeholder="Enter email" required>
+                            <input type="name" class="form-control" name="contactname" id="contactname" aria-describedby="emailHelp"
+                                value="<%= contacttoedit.name %>" placeholder="Name" required>
                         </div>
                         <div class="form-group">
 
-                            <input type="text" class="form-control" id="contactphone" placeholder="Phone"
+                            <input type="text" class="form-control" name="contactphone" id="contactphone" placeholder="Phone"
                                 value="<%= contacttoedit.contact %>" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="contactemail" placeholder="Email"
+                            <input type="text" class="form-control" name="contactemail" id="contactemail" placeholder="Email"
                                 value="<%= contacttoedit.email %>" required>
                         </div>
                         <button type="submit" class="btn btn-primary" onclick="Clearform">Submit</button>

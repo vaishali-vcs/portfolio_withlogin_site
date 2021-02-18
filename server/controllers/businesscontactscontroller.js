@@ -40,28 +40,30 @@ get_contact_to_edit = (req, res, next)=>{
     });
 }
 
-posteditcontact = (req, res, next)=>{
-    let id = req.params.id;
+upsertcontact = (req, res, next) => {
+    
     let updatedcontact = businesscontactsmodel({
-        "_id": id,
-        "name": req.body.name,
-        "phone":  req.body.phone,
-        "email": req.body.email
-    });    
+        "name": req.body.contactname,
+        "contact":  req.body.contactphone,
+        "email": req.body.contactemail
+    });  
 
-    businesscontactsmodel.updateOne({_id: id}, updatedcontact, (err) => {
+    console.log(updatedcontact);
+     
+    businesscontactsmodel.updateOne( { name: req.body.contactname},
+    { $set: updatedcontact }, { upsert: true, multi: true }, (err) => {
         if(err)
         {
             console.log(err);
             res.end(err);   
         }        
         else
-        {
-            res.render('businesscontacts/businesscontacts', 
-            { title: 'Business Contacts', contactList: contactList });
+        {   
+            res.redirect('getallcontacts');                     
         }   
-    });    
+    });
 }
+
 deletecontact = (req, res, next)=>{
     let id = req.params.id;
     businesscontactsmodel.remove({_id: id}, (err)=>{
@@ -72,9 +74,17 @@ deletecontact = (req, res, next)=>{
        }        
        else
        {
-           //refresh the booklist
-           res.render('businesscontacts/businesscontacts', 
-            { title: 'Business Contacts', contactList: contactList });
+            businesscontactsmodel.find((err, contactList) => {
+                if(err)
+                {
+                    res.render('error', { title: 'Error' });
+                }
+                else
+                {
+                    res.render('businesscontacts/businesscontacts', 
+                    {title: "Business Contacts", contactList: contactList , contacttoedit:""})                       
+                }
+            });
        }
     });
 }
@@ -82,3 +92,4 @@ deletecontact = (req, res, next)=>{
 module.exports.displaybusiness_ctlist = displaybusiness_ctlist
 module.exports.deletecontact = deletecontact
 module.exports.get_contact_to_edit = get_contact_to_edit
+module.exports.upsertcontact = upsertcontact
