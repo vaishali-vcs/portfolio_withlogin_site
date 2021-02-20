@@ -1,40 +1,28 @@
 // Client Side Ajax Script
-function AttachWarnings(event)
+function showwarning()
 {
     console.log(' in start');
     if(!confirm("Are you sure?"))
     {
-        event.preventDefault();
-        window.location.assign('/businesscontacts/login');
+        return false;
+        // window.location.assign('/businesscontacts/login');
     }    
-    
 }
 
+// clear the form on click of "clear"
 function Clearform() 
 {
-    document.getElementById("contactname").setAttribute("value", "");
-    document.getElementById("contactphone").setAttribute("value", "");
-    document.getElementById("contactemail").setAttribute("value", "");
-    // document.querySelector("form").reset();
-    console.log('in start');
+    document.getElementById("contactname").value= "";
+    document.getElementById("contactphone").value= "";
+    document.getElementById("contactemail").value= "";
 }
 
-$get("btndelete").onclick = function(event) {
-    
-    console.log('in javascript function')
-    if(!confirm("Are you sure?"))
-    {
-       event.preventDefault();
-       return false; // prevent browser action (don't go to the URL)
-    }
-  };
-
-  
-function showwarning (event)
-{
-    console.log('in javascript function')
-    if(!confirm("Are you sure?"))
-    {
-       event.preventDefault();
-    } 
-}
+// const dangerbtn = document.querySelector('.btn-danger');
+// dangerbtn.addEventListener('click', () => {
+//     console.log(' in start');
+//     if(!confirm("Are you sure?"))
+//     {
+//         return false;
+//         // window.location.assign('/businesscontacts/login');
+//     }    
+//   });

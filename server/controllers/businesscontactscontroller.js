@@ -1,5 +1,6 @@
 //connect to the businesscontacts model
 let businesscontactsmodel = require('../models/businesscontactsmodel.js');
+let editcontact = NaN;
 
 displaybusiness_ctlist = (req, res, next) => {
     businesscontactsmodel.find((err, contactList) => {
@@ -32,6 +33,7 @@ get_contact_to_edit = (req, res, next)=>{
                     }
                     else
                     {
+                        editcontact = contacttoedit
                         res.render('businesscontacts/businesscontacts', 
                         {title: "Business Contacts", contactList: contactList , contacttoedit:contacttoedit})                       
                     }
@@ -41,17 +43,13 @@ get_contact_to_edit = (req, res, next)=>{
 }
 
 upsertcontact = (req, res, next) => {
-    
-    let updatedcontact = businesscontactsmodel({
-        "name": req.body.contactname,
-        "contact":  req.body.contactphone,
-        "email": req.body.contactemail
-    });  
+         
+    const query = { name: editcontact.name };
+    const update = { $set: { name: req.body.contactname,
+        "contact": req.body.contactphone, "email": req.body.contactemail }};
+    const options = { upsert: true };
 
-    console.log(updatedcontact);
-     
-    businesscontactsmodel.updateOne( { name: req.body.contactname},
-    { $set: updatedcontact }, { upsert: true, multi: true }, (err) => {
+    businesscontactsmodel.updateOne(query, update, options,(err, doc) => {
         if(err)
         {
             console.log(err);
