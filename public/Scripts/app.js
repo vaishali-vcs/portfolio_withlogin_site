@@ -1,11 +1,18 @@
 // Client Side Ajax Script
 function showwarning()
 {
-    console.log(' in start');
+    txtname = document.getElementById("contactname").value;
+    txtphone = document.getElementById("contactphone").value;
+    txtemail = document.getElementById("contactemail").value;
+
+    if( txtname=="" || txtphone=="" || txtemail=="")
+    {
+        alert('Form is incomplete');
+        return false;
+    }
     if(!confirm("Are you sure?"))
     {
         return false;
-        // window.location.assign('/businesscontacts/login');
     }    
 }
 
@@ -16,13 +23,3 @@ function Clearform()
     document.getElementById("contactphone").value= "";
     document.getElementById("contactemail").value= "";
 }
-
-// const dangerbtn = document.querySelector('.btn-danger');
-// dangerbtn.addEventListener('click', () => {
-//     console.log(' in start');
-//     if(!confirm("Are you sure?"))
-//     {
-//         return false;
-//         // window.location.assign('/businesscontacts/login');
-//     }    
-//   });

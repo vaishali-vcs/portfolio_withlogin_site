@@ -1,6 +1,7 @@
 //connect to the businesscontacts model
 let businesscontactsmodel = require('../models/businesscontactsmodel.js');
 let editcontact = NaN;
+let sortfield = {name: 1};
 
 displaybusiness_ctlist = (req, res, next) => {
     businesscontactsmodel.find((err, contactList) => {
@@ -13,7 +14,7 @@ displaybusiness_ctlist = (req, res, next) => {
             res.render('businesscontacts/businesscontacts', 
             { title: 'Business Contacts', contactList: contactList, contacttoedit:"" });
         }
-    });
+    }).sort(sortfield);
 } 
 
 get_contact_to_edit = (req, res, next)=>{
@@ -37,7 +38,7 @@ get_contact_to_edit = (req, res, next)=>{
                         res.render('businesscontacts/businesscontacts', 
                         {title: "Business Contacts", contactList: contactList , contacttoedit:contacttoedit})                       
                     }
-                });
+                }).sort(sortfield);
             }
     });
 }
@@ -63,6 +64,7 @@ upsertcontact = (req, res, next) => {
 }
 
 deletecontact = (req, res, next)=>{
+    
     let id = req.params.id;
     businesscontactsmodel.remove({_id: id}, (err)=>{
          if(err)
@@ -75,7 +77,7 @@ deletecontact = (req, res, next)=>{
             businesscontactsmodel.find((err, contactList) => {
                 if(err)
                 {
-                    res.render('error', { title: 'Error' });
+                    res.render('error', { title: 'Error', message: err });
                 }
                 else
                 {
