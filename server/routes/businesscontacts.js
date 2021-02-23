@@ -3,7 +3,8 @@ let businessrouter = express.Router();
 let businesscontactscontroller = require('../controllers/businesscontactscontroller');
 
 businessrouter.get('/', businesscontactscontroller.displaybusiness_ctlist);
-businessrouter.get('/login', businesscontactscontroller.displaybusiness_ctlist);
+businessrouter.get('/login', businesscontactscontroller.displaylogin);
+businessrouter.get('/register', businesscontactscontroller.displaygistration);
 businessrouter.get('/getallcontacts', businesscontactscontroller.displaybusiness_ctlist); 
 businessrouter.get('/getcontacttoedit/:id', businesscontactscontroller.get_contact_to_edit); 
 businessrouter.get('/deletecontact/:id', businesscontactscontroller.deletecontact); 

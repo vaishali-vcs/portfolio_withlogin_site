@@ -3,6 +3,17 @@ let businesscontactsmodel = require('../models/businesscontactsmodel.js');
 let editcontact = NaN;
 let sortfield = {name: 1};
 
+displaylogin = (req, res, next) => {
+    res.render('auth/login', 
+    { title: 'Login',  messages: '' });
+}
+
+displaygistration = (req, res, next) => {
+    res.render('auth/register', 
+    { title: 'Login',  messages: '' });
+}
+
+
 displaybusiness_ctlist = (req, res, next) => {
     businesscontactsmodel.find((err, contactList) => {
         if(err)
@@ -89,6 +100,8 @@ deletecontact = (req, res, next)=>{
     });
 }
 
+module.exports.displaylogin = displaylogin
+module.exports.displaygistration = displaygistration
 module.exports.displaybusiness_ctlist = displaybusiness_ctlist
 module.exports.deletecontact = deletecontact
 module.exports.get_contact_to_edit = get_contact_to_edit

@@ -133,3 +133,28 @@ letter-spacing: 10px;
         width:600px;
         height:360px;
       }
+
+.site-main .businesscontacts-area  h2 > span{
+    display: block;
+    font: normal bold 49px/60px;
+    letter-spacing: 10px; 
+}
+
+/* set the style of the h3 in About partial */
+.site-main .businesscontacts-area  h3 > span{
+    display: block;
+    font: normal bold 49px/60px;
+    letter-spacing: 5px; 
+}
+
+.site-main .login-area  h2 > span{
+    display: block;
+    font: normal bold 49px/60px;
+    letter-spacing: 10px; 
+}
+
+.site-main .register-area  h2 > span{
+    display: block;
+    font: normal bold 49px/60px;
+    letter-spacing: 10px; 
+}
