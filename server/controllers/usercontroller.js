@@ -92,7 +92,8 @@ postRegistration = (req, res) => {
 
 getLogout = (req, res, next) => {
     req.logout();
-    res.redirect('/users/login');
+    console.log('in getlogout');
+    res.render('auth/login', {title: 'Login' , errors: ''});
 }
 
 module.exports.getLogin = getLogin

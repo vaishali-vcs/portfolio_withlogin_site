@@ -7,25 +7,26 @@ let sortfield = {name: 1};
 let UserModel = require('../models/user');
 let User = UserModel.User;
 let passport = require('passport');
-let baseurl = "/businesscontacts/";
+let baseurl = "businesscontacts/";
 
 displaybusiness_ctlist = (req, res, next) => {
     businesscontactsmodel.find((err, contactList) => {
         if(err)
         {
-            res.render('error', { title: 'Error' });
+            console.log(err); 
+            res.render('error', { title: 'Error' , message: err});
         }
         else
         {
             res.render('businesscontacts/businesscontacts', 
-            { title: 'Business Contacts', contactList: contactList, contacttoedit:"" });
+            { title: 'Business Contacts', contactList: contactList, contacttoedit:"",  displayName: req.user ? req.user.displayName : '' });
         }
     }).sort(sortfield);
 } 
 
 get_contact_to_edit = (req, res, next)=>{
     let id = req.params.id; 
-   
+    
     businesscontactsmodel.findById(id, (err, contacttoedit) => {
         if(err)
         {
@@ -36,13 +37,16 @@ get_contact_to_edit = (req, res, next)=>{
                 businesscontactsmodel.find((err, contactList) => {
                     if(err)
                     {
-                        res.render('error', { title: 'Error' });
+                        res.render('error', { title: 'Error', message: err });
                     }
                     else
                     {
                         editcontact = contacttoedit
                         res.render( baseurl + 'businesscontacts', 
-                        {title: "Business Contacts", contactList: contactList , contacttoedit:contacttoedit})                       
+                        {title: "Business Contacts", 
+                        contactList: contactList , 
+                        contacttoedit:contacttoedit,  
+                        displayName: req.user ? req.user.displayName : ''})                       
                     }
                 }).sort(sortfield);
             }
@@ -88,7 +92,7 @@ deletecontact = (req, res, next)=>{
                 else
                 {
                     res.render( baseurl + 'businesscontacts', 
-                    {title: "Business Contacts", contactList: contactList , contacttoedit:""})                       
+                    {title: "Business Contacts", contactList: contactList , contacttoedit:"",  displayName: req.user ? req.user.displayName : ''})                       
                 }
             });
        }

@@ -3,15 +3,15 @@ let express = require('express');
 
 
 module.exports.getHome = function(req, res, next) {
-    res.render('home', { title: 'Home' });
+    res.render('home', { title: 'Home', displayName: req.user ? req.user.displayName : '' });
   }
 
 module.exports.postHome =  function(req, res, next) {
-    res.render('index', { title: 'About' });
+    res.render('index', { title: 'About', displayName: req.user ? req.user.displayName : '' });
 }
 
 module.exports.getAbout = function(req, res, next) {
-    res.render('index', { title: 'About' });
+    res.render('index', { title: 'About', displayName: req.user ? req.user.displayName : '' });
   }
 
 module.exports.getResume =   function ( req, res ) {
@@ -27,19 +27,19 @@ module.exports.getResume =   function ( req, res ) {
 }
 
 module.exports.getProjects =  function(req, res, next) {
-    res.render('index', { title: 'Projects' });
+    res.render('index', { title: 'Projects', displayName: req.user ? req.user.displayName : '' });
 }
 
 module.exports.getServices =  function(req, res, next) {
-    res.render('index', { title: 'Services' });
+    res.render('index', { title: 'Services' , displayName: req.user ? req.user.displayName : ''});
 }
 
 module.exports.getContactpage = function(req, res, next) {
-    res.render('contact', { title: 'Contact', entered_name: '' });
+    res.render('contact', { title: 'Contact', entered_name: '' , displayName: req.user ? req.user.displayName : '' });
 }
 
 module.exports.processContactpage = function(req, res, next) {
     console.log(req.body.inputname);
   
-    res.render('contact', { title: 'Contact', entered_name: req.body.inputname });
+    res.render('contact', { title: 'Contact', entered_name: req.body.inputname, displayName: req.user ? req.user.displayName : '' });
   }
