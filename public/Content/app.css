@@ -120,7 +120,7 @@ letter-spacing: 10px;
 /* set the style of the carousel in Services partial */
 #carouselservices {
     background-color: transparent;
-    height: 500px !important;
+    height: 400px !important;
     width: 360;
     align-content: center;
     display: flex;
@@ -131,7 +131,7 @@ letter-spacing: 10px;
 
 .carousel-inner > .item > img {
         width:600px;
-        height:360px;
+        height:400px;
       }
 
 .site-main .businesscontacts-area  h2 > span{
@@ -157,4 +157,50 @@ letter-spacing: 10px;
     display: block;
     font: normal bold 49px/60px;
     letter-spacing: 10px; 
+}
+
+
+/* Animation And FadeIn CSS */
+.animated {
+    background-repeat: no-repeat;
+    background-position: left top;
+    padding-top:35px;
+    margin-bottom:70px;
+    -webkit-animation-duration: 5s;
+    animation-duration: 5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+  }
+  
+  .fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+
+/* Animation for Cards */  
+  .card{
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+  cursor: pointer;
+}
+
+.card:hover{
+     transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
