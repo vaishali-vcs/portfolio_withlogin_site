@@ -25,7 +25,7 @@ Date: Feb-10-2021
     <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
       <%if (title=="Home" ) { %>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/home"><i class="fas fa-2x  fa-home"></i> Home</a>
+          <a class="nav-link active " aria-current="page" href="/home" ><i class="fas fa-2x  fa-home" ></i> Home</a>
         </li>
         <% } else{ %>
           <li class="nav-item">
@@ -44,7 +44,7 @@ Date: Feb-10-2021
                 <% } %>
                   <%if (title=="Projects" ) { %>
                     <li class="nav-item active">
-                      <a class="nav-link" href="/projects"> <i class="fas fa-2x  fa-th-large"></i> Projects</a>
+                      <a class="nav-link " href="/projects" > <i class="fas fa-2x  fa-th-large"></i> Projects</a>
                     </li>
                     <% } else{ %>
                       <li class="nav-item">
@@ -62,7 +62,7 @@ Date: Feb-10-2021
                             <% } %>
                               <%if (title=="Contact" ) { %>
                                 <li class="nav-item active">
-                                  <a class="nav-link" href="/contact"><i class="fas fa-2x  fa-mobile-alt"></i>
+                                  <a class="nav-link " href="/contact" ><i class="fas fa-2x  fa-mobile-alt"></i>
                                     Contact</a>
                                 </li>
                                 <% } else{ %>
@@ -73,14 +73,26 @@ Date: Feb-10-2021
                                   <% } %>
 
                                     <% if(typeof displayName=='string' && displayName) { %>
-                                      <li class="navbar-text"><i class="fas fa-2x fa-user"></i> Welcome, <%= displayName %>
+                                      <li class="navbar-text"  >
+                                        <span style="color: darkmagenta;" >
+                                          <i class="fas fa-2x fa-user" style="color: darkmagenta;"></i> Hi <%= displayName %>
+                                        </span>
                                       </li>
-                                      <li class="nav-item"><a href="/users/logout" class="nav-link">
-                                          <i class="fas fa-2x fa-sign-out-alt"></i> Logout</a></li>
+                                      <li class="nav-item">
+
+                                        <a href="/users/logout" class="nav-link" style="color: darkmagenta;" >
+                                          <span >
+                                            <i class="fas fa-2x fa-sign-out-alt" style="color: darkmagenta;"></i> Logout</a></span>
+                                      </li>
+
                                       <% } else { %>
-                                        <li class="nav-item"><a href="/users/login" class="nav-link">
-                                            <i class="fas fa-2x fa-sign-in-alt"></i> Login</a></li>
+                                        <li class="nav-item">
+                                          <a href="/users/login" class="nav-link">
+                                            <span>
+                                              <i class="fas fa-2x fa-sign-in-alt"></i> Login</a>
+                                          </span>
+                                        </li>
+
                                         <% } %>
   </div>
-
 </nav>
