@@ -1,12 +1,22 @@
 let express = require('express');
 let businessrouter = express.Router();
 let businesscontactscontroller = require('../controllers/businesscontactscontroller');
+let passport = require('passport');
+
+//helper function for guard purposes
+function requireAuth(req, res, next)
+{
+    //check if the user is logged in 
+    if(!req.isAuthenticated())
+    {
+        return res.redirect(baseurl + '/login');
+    }
+    next();
+} 
 
 businessrouter.get('/', businesscontactscontroller.displaybusiness_ctlist);
-businessrouter.get('/login', businesscontactscontroller.displaylogin);
-businessrouter.get('/register', businesscontactscontroller.displaygistration);
 businessrouter.get('/getallcontacts', businesscontactscontroller.displaybusiness_ctlist); 
-businessrouter.get('/getcontacttoedit/:id', businesscontactscontroller.get_contact_to_edit); 
-businessrouter.get('/deletecontact/:id', businesscontactscontroller.deletecontact); 
-businessrouter.post('/upsertcontact' , businesscontactscontroller.upsertcontact);
+businessrouter.get('/getcontacttoedit/:id', requireAuth, businesscontactscontroller.get_contact_to_edit); 
+businessrouter.get('/deletecontact/:id', requireAuth, businesscontactscontroller.deletecontact); 
+businessrouter.post('/upsertcontact' , requireAuth, businesscontactscontroller.upsertcontact);
 module.exports = businessrouter;

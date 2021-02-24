@@ -3,16 +3,11 @@ let businesscontactsmodel = require('../models/businesscontactsmodel.js');
 let editcontact = NaN;
 let sortfield = {name: 1};
 
-displaylogin = (req, res, next) => {
-    res.render('auth/login', 
-    { title: 'Login',  messages: '' });
-}
-
-displaygistration = (req, res, next) => {
-    res.render('auth/register', 
-    { title: 'Login',  messages: '' });
-}
-
+//create user model instance
+let UserModel = require('../models/user');
+let User = UserModel.User;
+let passport = require('passport');
+let baseurl = "/businesscontacts/";
 
 displaybusiness_ctlist = (req, res, next) => {
     businesscontactsmodel.find((err, contactList) => {
@@ -46,7 +41,7 @@ get_contact_to_edit = (req, res, next)=>{
                     else
                     {
                         editcontact = contacttoedit
-                        res.render('businesscontacts/businesscontacts', 
+                        res.render( baseurl + 'businesscontacts', 
                         {title: "Business Contacts", contactList: contactList , contacttoedit:contacttoedit})                       
                     }
                 }).sort(sortfield);
@@ -92,7 +87,7 @@ deletecontact = (req, res, next)=>{
                 }
                 else
                 {
-                    res.render('businesscontacts/businesscontacts', 
+                    res.render( baseurl + 'businesscontacts', 
                     {title: "Business Contacts", contactList: contactList , contacttoedit:""})                       
                 }
             });
@@ -100,8 +95,6 @@ deletecontact = (req, res, next)=>{
     });
 }
 
-module.exports.displaylogin = displaylogin
-module.exports.displaygistration = displaygistration
 module.exports.displaybusiness_ctlist = displaybusiness_ctlist
 module.exports.deletecontact = deletecontact
 module.exports.get_contact_to_edit = get_contact_to_edit
