@@ -16,6 +16,15 @@ function showwarning()
     }    
 }
 
+// Client Side Ajax Script
+function showconfirmationdialog()
+{
+    if(!confirm("Are you sure?"))
+    {
+        return false;
+    }    
+}
+
 // clear the form on click of "clear"
 function Clearform() 
 {

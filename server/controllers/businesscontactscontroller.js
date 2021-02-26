@@ -94,7 +94,7 @@ deletecontact = (req, res, next)=>{
                     res.render( baseurl + 'businesscontacts', 
                     {title: "Business Contacts", contactList: contactList , contacttoedit:"",  displayName: req.user ? req.user.displayName : ''})                       
                 }
-            });
+            }).sort(sortfield);;
        }
     });
 }

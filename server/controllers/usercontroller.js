@@ -11,24 +11,28 @@ getLogin = (req, res)=> {
 
 
 postLogin = (req, res, next)=> {
+    let errors = [];
+
     passport.authenticate('local',
     (err, user, info) => {
         // server err
         if(err)
         {
-            return next(err);
+            errors.push({msg: 'Server Error!'});
+            res.render('auth/login', {title: 'Login' ,'errors': errors});
         }
         // if there a user login error
         if(!user)
         {
-            req.flash('loginMessage', 'Authentication Error');
-            return res.redirect('/users/login');
+            errors.push({msg: 'Authentication Failed!'});
+            res.render('auth/login', {title: 'Login' ,'errors': errors});
         }
         req.login(user, (err) => {
             // server error
             if(err)
             {
-                return next(err);
+                errors.push({msg: 'Login Failed!'});
+                res.render('auth/login', {title: 'Login' ,'errors': errors});
             }
             return res.redirect('/businesscontacts/getallcontacts');
         });
@@ -48,7 +52,7 @@ postRegistration = (req, res) => {
     if(!username || !email || !password)
     {
         errors.push({msg: 'Please fill in all fields'});
-        res.render('auth/register', {title: 'Login' ,'errors': errors});
+        res.render('auth/register', {title: 'Register' ,'errors': errors});
     }
     else{
         //validation passed
@@ -68,12 +72,12 @@ postRegistration = (req, res) => {
             {
                 console.log(err);
                 errors.push({msg: 'Error: User Already Exists!'});
-                return res.render('auth/register', {title: 'Login' ,'errors': errors});
+                return res.render('auth/register', {title: 'Registration' ,'errors': errors});
             }
             else{
                 console.log(err);
                 errors.push({msg: 'System Error: Failed to register!'});
-                return res.render('auth/register', {title: 'Login' ,'errors': errors});
+                return res.render('auth/register', {title: 'Registration' ,'errors': errors});
             }
         }
         else
