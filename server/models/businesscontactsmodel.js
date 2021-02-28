@@ -1,3 +1,12 @@
+/*
+File Name: index.js 
+Name: Vaishali Siddeshwar
+Student ID: 301172372
+Date: Feb-28-2021
+This module has Business contact schema.
+the DB collection name is business_contacts
+*/
+
 let mongoose = require('mongoose');
 
 let contactSchema = {

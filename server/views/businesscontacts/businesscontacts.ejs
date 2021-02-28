@@ -1,8 +1,8 @@
 <!--This partial has Contact page contents 
-File Name: businesscontacts.ejs 
+File Name: business contact list  
 Name: Vaishali Siddeshwar
 Student ID: 301172372
-Date: Feb-10-2021
+Date: Feb-26-2021
 -->
 
  <!-- render a fixed header content. This has 
@@ -15,17 +15,51 @@ non-UI elements. This contains only <head> tags
 
 <section class="businesscontacts-area">
     <div class="container">
-        <h2 class="text-uppercase pt-5">
+         <h2 class="text-uppercase pt-5">
           <span> business contacts</span> 
         </h2>
+          
         <hr>
         <div class="row">
-            <div class="column col-md-6">
-                <%- include ./partials/listbusinesscontacts.ejs %>
-            </div>
-            
-            <div class="column col-md-6">
-                <%- include ./partials/addbusinesscontacts.ejs %>
+            <div class="column col-md-12">
+                <a href="/businesscontacts/addcontact" class="btn btn-primary">
+                    Add Contact</a>
+
+                
+            <table class="table table-striped table-hover">
+                <!--    Header row-->
+                <tr>
+                    <th class="text-center ">Name</th>
+                    <th class="text-center ">phone</th>
+                    <th class="text-center ">email</th>
+                    <th class="text-center  "></th>
+                    <th class="text-center  "></th>
+                </tr>
+                <!--   Repeatable Template row -->
+                <% for (let count=0; count< contactList.length; count++) { %>
+                    <tr>
+                        <td>
+                            <%= contactList[count].name %>
+                        </td>
+                        <td >
+                            <%= contactList[count].contact %>
+                        </td>
+                        <td>
+                            <%= contactList[count].email %>
+                        </td>
+                        <td>
+                            <a href="/businesscontacts/getcontacttoedit/<%= contactList[count]._id %>"
+                                class="btn btn-primary  btn-sm">
+                                <i class="fas fa-pencil-alt"></i></a>
+                        </td>
+                        <td>
+                            <a href="/businesscontacts/deletecontact/<%= contactList[count]._id %>"
+                                class="btn btn-danger btn-sm" id="btndelete" onclick="return showconfirmationdialog()">
+                                <i class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                    <% } %>
+            </table>     
             </div>
           </div>
     </div>

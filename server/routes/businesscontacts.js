@@ -1,3 +1,13 @@
+/*
+File Name: index.js 
+Name: Vaishali Siddeshwar
+Student ID: 301172372
+Date: Feb-28-2021
+This module has routes for business contacts 
+guarded by Passport local authentication.
+*/
+
+
 let express = require('express');
 let businessrouter = express.Router();
 let businesscontactscontroller = require('../controllers/businesscontactscontroller');
@@ -15,6 +25,7 @@ function requireAuth(req, res, next)
     next();
 } 
 
+businessrouter.get('/addcontact', requireAuth, businesscontactscontroller.addContact);
 businessrouter.get('/', requireAuth, businesscontactscontroller.displaybusiness_ctlist);
 businessrouter.get('/getallcontacts', requireAuth, businesscontactscontroller.displaybusiness_ctlist); 
 businessrouter.get('/getcontacttoedit/:id', requireAuth, businesscontactscontroller.get_contact_to_edit); 

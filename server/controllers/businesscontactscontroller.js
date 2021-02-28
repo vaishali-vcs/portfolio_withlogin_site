@@ -1,7 +1,17 @@
+/*
+File Name: index.js 
+Name: Vaishali Siddeshwar
+Student ID: 301172372
+Date: Feb-28-2021
+This module has business contacts get and update logic
+*/
+
+
 //connect to the businesscontacts model
 let businesscontactsmodel = require('../models/businesscontactsmodel.js');
 let editcontact = NaN;
-let sortfield = {name: 1};
+// default sort order
+let sortfield = {name: 1};  
 
 //create user model instance
 let UserModel = require('../models/user');
@@ -9,6 +19,16 @@ let User = UserModel.User;
 let passport = require('passport');
 let baseurl = "businesscontacts/";
 
+//show add contact form
+addContact = (req, res, next) => {
+    res.render( baseurl + 'addbusinesscontacts', {
+        title: "Add/Update Business Contact", contacttoedit: "",
+        displayName: req.user ? req.user.displayName : ''
+    });
+
+}
+
+// get all Business contacts
 displaybusiness_ctlist = (req, res, next) => {
     businesscontactsmodel.find((err, contactList) => {
         if(err)
@@ -24,6 +44,7 @@ displaybusiness_ctlist = (req, res, next) => {
     }).sort(sortfield);
 } 
 
+// get one Business contact to be edited
 get_contact_to_edit = (req, res, next)=>{
     let id = req.params.id; 
     
@@ -42,8 +63,8 @@ get_contact_to_edit = (req, res, next)=>{
                     else
                     {
                         editcontact = contacttoedit
-                        res.render( baseurl + 'businesscontacts', 
-                        {title: "Business Contacts", 
+                        res.render( baseurl + 'addbusinesscontacts', 
+                        {title: "Add/Update Business Contact", 
                         contactList: contactList , 
                         contacttoedit:contacttoedit,  
                         displayName: req.user ? req.user.displayName : ''})                       
@@ -53,6 +74,7 @@ get_contact_to_edit = (req, res, next)=>{
     });
 }
 
+// update or insert contacts
 upsertcontact = (req, res, next) => {
          
     const query = { name: editcontact.name };
@@ -73,6 +95,7 @@ upsertcontact = (req, res, next) => {
     });
 }
 
+// update or delete contacts
 deletecontact = (req, res, next)=>{
     
     let id = req.params.id;
@@ -92,13 +115,14 @@ deletecontact = (req, res, next)=>{
                 else
                 {
                     res.render( baseurl + 'businesscontacts', 
-                    {title: "Business Contacts", contactList: contactList , contacttoedit:"",  displayName: req.user ? req.user.displayName : ''})                       
+                    {title: "Add/Update Business Contact", contactList: contactList , contacttoedit:"",  displayName: req.user ? req.user.displayName : ''})                       
                 }
             }).sort(sortfield);;
        }
     });
 }
 
+module.exports.addContact = addContact
 module.exports.displaybusiness_ctlist = displaybusiness_ctlist
 module.exports.deletecontact = deletecontact
 module.exports.get_contact_to_edit = get_contact_to_edit

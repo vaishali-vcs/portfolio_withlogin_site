@@ -1,3 +1,12 @@
+/*
+File Name: index.js 
+Name: Vaishali Siddeshwar
+Student ID: 301172372
+Date: Feb-28-2021
+This module has logic for user login and registration.
+*/
+
+
 const express = require('express')
 let passport = require('passport');
 let mongoose = require('mongoose');
@@ -5,11 +14,12 @@ const router = express.Router();
 let userModel = require('../models/user');
 let User = userModel.User; 
 
+// show login form
 getLogin = (req, res)=> {
     res.render('auth/login', {title: 'Login' , errors: ''}); 
 }
 
-
+// process login form
 postLogin = (req, res, next)=> {
     let errors = [];
 
@@ -39,11 +49,12 @@ postLogin = (req, res, next)=> {
     })(req, res, next);
 }
 
+// show registration form
 getRegistration = (req, res)=> {
     res.render('auth/register', {title: 'Register' , errors: ''}); 
 }
 
-
+// process registration form
 postRegistration = (req, res) => {
     const {username, email, password} = req.body;
     let errors = [];
@@ -56,7 +67,6 @@ postRegistration = (req, res) => {
     }
     else{
         //validation passed
-         // instantiate a user object
          // instantiate a user object
     let newUser = new User({
         username: req.body.username,
@@ -94,6 +104,7 @@ postRegistration = (req, res) => {
     }
 }
 
+// process logout
 getLogout = (req, res, next) => {
     req.logout();
     console.log('in getlogout');

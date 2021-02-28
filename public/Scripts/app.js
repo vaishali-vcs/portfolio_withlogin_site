@@ -1,4 +1,13 @@
-// Client Side Ajax Script
+/*
+File Name: index.js 
+Name: Vaishali Siddeshwar
+Student ID: 301172372
+Date: Feb-28-2021
+This module has Client Side JavaScript for 
+confirmation before deletion and form incomplete alerts.
+*/
+
+// show incomplete form warning
 function showwarning()
 {
     txtname = document.getElementById("contactname").value;
@@ -16,7 +25,7 @@ function showwarning()
     }    
 }
 
-// Client Side Ajax Script
+// Client Side show confirmation dialog Script
 function showconfirmationdialog()
 {
     if(!confirm("Are you sure?"))
